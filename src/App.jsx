@@ -11,8 +11,10 @@ import AuthLayout from "./components/Layouts/authLayout/AuthLayout";
 import UserProvider from "./context/User.Context";
 import ProductDetails from "./pages/productDetails/ProductDetails";
 import Cart from "./pages/cart/Cart";
+import CheckOut from "./pages/order/checkOut/CheckOut";
 import Products from "./pages/products/Products";
 import CartProvider from "./context/Cart.Context";
+import Categories from "./pages/categories/Categories";
 
 function App() {
 
@@ -26,8 +28,10 @@ function App() {
         { index: true, element: <Home /> },
         { path: "home", element: <Home /> },
         { path: "cart", element: <Cart /> },
+        { path: "categories", element: <Categories /> },
         { path: "products", element: <Products /> },
         { path: "products/:id", element: <ProductDetails /> },
+        { path: "checkout", element: <CheckOut /> },
         { path: "*", element: <NotFound /> },
       ]
     },

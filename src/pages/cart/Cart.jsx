@@ -16,6 +16,7 @@ export default function Cart() {
     return (
         <>
             {!cartInfo ? <Loading /> :
+                <>
                 <section className='bg-slate-100 p-5'>
                     <h2>
                         <span className='text-black font-semibold'>Shop Cart </span>
@@ -60,6 +61,14 @@ export default function Cart() {
                             </div>
                     }
                 </section>
+                {
+                    cartInfo.numOfCartItems > 0 ?
+                    <div className='m-4 flex justify-end'>
+                        <NavLink to={'/checkout'} className='btn-primary'>Order now</NavLink>
+                    </div> :''
+                }
+                </>
+                
             }
 
         </>
