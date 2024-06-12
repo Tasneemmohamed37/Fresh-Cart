@@ -13,6 +13,9 @@ export default {
       },
     },
     extend: {
+      fontFamily:{
+        cairo:'"Cairo", sans-serif'
+      },
       colors:{
         mainColor: '#0aad0a',
         lightColor: '#f0f3f2',

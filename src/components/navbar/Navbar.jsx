@@ -40,6 +40,20 @@ export default function Navbar() {
                             </li>
                             <li>
                                 <NavLink
+                                    to="products"
+                                    className={({ isActive }) => {
+                                        return `relative hover:before:w-full hover:font-bold before:transition-[width] before:duration-300 before:absolute before:h-[2px] before:bg-mainColor before:-bottom-1 before:left-0 
+                                ${isActive
+                                                ? "before:w-full font-bold"
+                                                : "before:w-0"
+                                            }`;
+                                    }}
+                                >
+                                    Products
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink
                                     to="cart"
                                     className={({ isActive }) => {
                                         return `relative hover:before:w-full hover:font-bold before:transition-[width] before:duration-300 before:absolute before:h-[2px] before:bg-mainColor before:-bottom-1 before:left-0 
@@ -54,7 +68,7 @@ export default function Navbar() {
                             </li>
                             <li>
                                 <NavLink
-                                    to="products"
+                                    to="allOrders"
                                     className={({ isActive }) => {
                                         return `relative hover:before:w-full hover:font-bold before:transition-[width] before:duration-300 before:absolute before:h-[2px] before:bg-mainColor before:-bottom-1 before:left-0 
                                 ${isActive
@@ -63,7 +77,7 @@ export default function Navbar() {
                                             }`;
                                     }}
                                 >
-                                    Products
+                                    Orders
                                 </NavLink>
                             </li>
                             <li>

@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import { cartContext } from '../../context/Cart.Context'
 import Loading from '../../components/loading/Loading';
+import { Helmet } from 'react-helmet';
 
 
 export default function Cart() {
@@ -15,6 +16,9 @@ export default function Cart() {
 
     return (
         <>
+        <Helmet>
+            <title>Cart</title>
+        </Helmet>
             {!cartInfo ? <Loading /> :
                 <>
                 <section className='bg-slate-100 p-5'>

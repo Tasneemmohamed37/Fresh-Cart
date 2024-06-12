@@ -4,34 +4,41 @@ import axios from 'axios';
 import Loading from '../../components/loading/Loading';
 import HomeSlider from '../../components/homeSider/HomeSlider';
 import CategoriesSlider from '../../components/categoriesSlider/CategoriesSlider';
+import { useQuery } from '@tanstack/react-query';
+import { Helmet } from 'react-helmet';
 
 export default function Home() {
 
-  const [products, setProducts] = useState(null);
-
   async function getAllProducts() {
     const { data } = await axios.get('https://ecommerce.routemisr.com/api/v1/products');
-    setProducts(data);
+    return data
   }
 
-  useEffect(() => {
-    getAllProducts()
-  }, [])
+  let {data, isLoading} = useQuery({
+    queryKey: ['products'], // array contain query key name
+    queryFn:getAllProducts // func which call api
+  })
+
+  if(isLoading){
+    return <Loading/>
+  }
 
   return (
     <>
+        <Helmet>
+                <title>Home</title>
+        </Helmet>
         <HomeSlider/>
         <CategoriesSlider/>
-        {products == null ? <Loading/> :
         <div className='grid grid-cols-12 gap-5 pt-10'> {
-          products.data.map((p, index) => {
+          data.data.map((p, index) => {
             return (
               <ProductCard product={p} key={index} />
             )
           })
         }
       </div>
-        }
+
     </>
   )
 }

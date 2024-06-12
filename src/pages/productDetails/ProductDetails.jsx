@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import Loading from '../../components/loading/Loading';
 import ReactImageGallery from 'react-image-gallery';
 import { cartContext } from '../../context/Cart.Context'
+import { Helmet } from 'react-helmet';
 
 
 
@@ -32,6 +33,9 @@ export default function ProductDetails() {
     
     return (
         <>
+        <Helmet>
+            <title>Products</title>
+        </Helmet>
         {product ?<div className='grid grid-cols-12  gap-8 shadow-sm my-5'>
             <div className="img col-span-12  md:col-span-4">
                 <ReactImageGallery items={imageItems} showNav={false} />

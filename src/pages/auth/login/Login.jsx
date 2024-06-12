@@ -5,6 +5,7 @@ import axios from "axios";
 import { Navigate, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { userContext } from "../../../context/User.Context";
+import { Helmet } from "react-helmet";
 
 export default function Login() {
 
@@ -59,6 +60,9 @@ export default function Login() {
 
   return (
     <>
+    <Helmet>
+      <title>Login</title>
+    </Helmet>
       <section>
         <h2 className="text-mainColor text-2xl">
           <i className="fa-regular fa-circle-user me-3"></i>

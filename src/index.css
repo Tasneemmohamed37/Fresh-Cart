@@ -1,5 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@300&display=swap");
 
+/* cairo font */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap');
+
 
 @tailwind base;
 @tailwind components;
@@ -20,7 +23,6 @@
         @apply text-red-600 font-bold mt-1
     }
 }
-
 
 
 .preloader {

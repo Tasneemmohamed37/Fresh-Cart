@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Loading from "../../components/loading/Loading";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet";
 
 export default function Categories() {
     const [categories, setCategories] = useState(null);
@@ -33,6 +34,9 @@ export default function Categories() {
 
     return (
         <>
+        <Helmet>
+            <title>Categories</title>
+        </Helmet>
             {categories == null ? (
                 <Loading />
             ) : (

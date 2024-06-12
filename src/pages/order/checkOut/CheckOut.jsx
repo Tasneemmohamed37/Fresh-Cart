@@ -6,6 +6,7 @@ import { userContext } from "../../../context/User.Context";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 
 
@@ -67,7 +68,7 @@ export default function CheckOut() {
         const {data} = await axios.request(options)
         setCartInfo([])
         toast.success('Order Created Successfully')
-        navigate('/')
+        navigate('/allOrders')
       }
       else{
         toast.error('please add items to your cart first')
@@ -114,6 +115,9 @@ export default function CheckOut() {
 
   return (
     <>
+    <Helmet>
+      <title>Check Out</title>
+    </Helmet>
       <section>
         <h2 className="text-black text-lg font-semibold">Shipping Address</h2>
         <form

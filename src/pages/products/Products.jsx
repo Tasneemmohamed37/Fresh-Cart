@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import ProductCard from '../../components/productCard/ProductCard'
 import axios from 'axios';
 import Loading from '../../components/loading/Loading';
+import { Helmet } from 'react-helmet';
 
 export default function Products() {
 
@@ -18,6 +19,9 @@ export default function Products() {
 
     return (
         <>
+        <Helmet>
+            <title>Products</title>
+        </Helmet>
             {products == null ? <Loading /> :
                 <div className='grid grid-cols-12 gap-5 pt-10'> {
                     products.data.map((p, index) => {

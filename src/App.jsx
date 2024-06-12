@@ -15,6 +15,10 @@ import CheckOut from "./pages/order/checkOut/CheckOut";
 import Products from "./pages/products/Products";
 import CartProvider from "./context/Cart.Context";
 import Categories from "./pages/categories/Categories";
+import AllOrders from "./pages/order/allOrders/AllOrders";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import Brands from "./pages/brands/Brands";
 
 function App() {
 
@@ -29,9 +33,11 @@ function App() {
         { path: "home", element: <Home /> },
         { path: "cart", element: <Cart /> },
         { path: "categories", element: <Categories /> },
+        { path: "brands", element: <Brands /> },
         { path: "products", element: <Products /> },
         { path: "products/:id", element: <ProductDetails /> },
         { path: "checkout", element: <CheckOut /> },
+        { path: "allOrders", element: <AllOrders /> },
         { path: "*", element: <NotFound /> },
       ]
     },
@@ -45,14 +51,20 @@ function App() {
     },
   ]);
 
+  const myClient = new QueryClient();
+
+
   return (
     <>
-      <UserProvider>
-        <CartProvider>
-          <RouterProvider router={routes}></RouterProvider>
-          <Toaster />
-        </CartProvider>
-      </UserProvider>
+      <QueryClientProvider  client={myClient}>
+        <UserProvider>
+          <CartProvider>
+            <RouterProvider router={routes}></RouterProvider>
+            <ReactQueryDevtools></ReactQueryDevtools>
+            <Toaster />
+          </CartProvider>
+        </UserProvider>
+      </QueryClientProvider>
     </>
   )
 }

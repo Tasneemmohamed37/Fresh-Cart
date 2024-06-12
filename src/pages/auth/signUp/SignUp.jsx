@@ -4,6 +4,7 @@ import { useFormik } from "formik";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet";
 
 export default function SignUp() {
 
@@ -72,6 +73,9 @@ export default function SignUp() {
 
   return (
     <>
+    <Helmet>
+      <title>SignUp</title>
+    </Helmet>
       <section>
         <h2 className="text-mainColor text-2xl">
           <i className="fa-regular fa-circle-user me-3"></i>
