@@ -1,11 +1,11 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Loading from "../../components/loading/Loading";
 import toast from "react-hot-toast";
 import { Helmet } from "react-helmet";
+import { useQuery } from "@tanstack/react-query";
 
 export default function Categories() {
-    const [categories, setCategories] = useState(null);
     const [subCategories, setSubCategories] = useState(null);
     const [catName, setCatName] = useState('');
 
@@ -14,8 +14,8 @@ export default function Categories() {
         const { data } = await axios.get(
             "https://ecommerce.routemisr.com/api/v1/categories"
         );
-        setCategories(data.data);
         toast.dismiss(loadingID);
+        return data
     }
 
     async function getSubCategoriesForSpecCategory(catID, catName) {
@@ -28,22 +28,25 @@ export default function Categories() {
         toast.dismiss(loadingID);
     }
 
-    useEffect(() => {
-        getAllCategories();
-    }, []);
+
+    let {data, isLoading} = useQuery({
+        queryKey: ['categories'], // array contain query key name
+        queryFn:getAllCategories // func which call api
+        })
+
+        if(isLoading){
+            return <Loading/>
+        }
 
     return (
         <>
         <Helmet>
             <title>Categories</title>
         </Helmet>
-            {categories == null ? (
-                <Loading />
-            ) : (
                 <>
                     <div className="grid grid-cols-12 gap-10 pt-10">
                         {" "}
-                        {categories.map((cat, index) => (
+                        {data.data.map((cat, index) => (
                             <div
                                 key={index}
                                 onClick={() => {
@@ -78,7 +81,7 @@ export default function Categories() {
                         </div>
                     )}
                 </>
-            )}
+
         </>
     );
 }
