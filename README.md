@@ -1,8 +1,24 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A Fresh Cart App is an e-commerce website with a product catalog, a shopping cart system, and a checkout process.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+#### Features ⚡:
+- Register/login page
+- display products, categories and brands
+- CRUD operations on the cart
+- checkout process 
+- Online payment
+- Fully responsive website using Tailwind
+- Fully validated forms
+
+
+ #### Developed using libraries including 💻 : 
+ - Axios,
+ - React Router
+ - Formik
+ - Yup
+ - Swiper
+ - React Image Gallery 
+ - jwt-decode
+ - react query 
+ - react-helmet 
